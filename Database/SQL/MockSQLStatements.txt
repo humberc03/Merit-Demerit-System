@@ -1,0 +1,24 @@
+**SEARCH FOR MERIT INSTANCE**
+SELECT pupil.candidateNumber, pupil.forename, pupil.surname, year, class, merit.name, merit.description, timestamp, teacher.surname, teacher.forename
+FROM pupil, instance, merit, teacher
+WHEN instance.demeritID = “N/A” AND instance.candidateNumber = pupil.candidateNumber
+
+**SEARCH FOR DEMERIT INSTANCE**
+SELECT pupil.candidateNumber, pupil.forename, pupil.surname, year, class, demerit.name, demerit.description, timestamp, teacher.surname, teacher.forename
+FROM pupil, instance, demerit, teacher
+WHEN instance.meritID = “N/A” AND instance.candidateNumber = pupil.candidateNumber
+
+**SEARCH FOR LIST OF A PUPIL’S MERITS**
+SELECT pupil.candidateNumber, pupil.forename, pupil.surname, year, class, merits, instanceID, instance.timestamp, merit.name, merit.description, teacher.forename, teacher.surname, teacher.subject
+FROM pupil, instance, merit, teacher
+WHEN instance.demeritID = “N/A” AND instance.candidateNumber = pupil.candidateNumber AND instance.meritID = pupil.meritID
+
+**SEARCH FOR LIST OF A PUPIL’S DEMERITS**
+SELECT pupil.candidateNumber, pupil.forename, pupil.surname, year, class, demerits, instanceID, instance.timestamp, demerit.name, demerit.description, teacher.forename, teacher.surname, teacher.subject
+FROM pupil, instance, demerit, teacher
+WHEN instance.meritID = “N/A” AND instance.candidateNumber = pupil.candidateNumber AND instance.demeritID = pupil.demeritID
+
+**SEARCH FOR LIST OF A PUPIL’S INSTANCES**
+SELECT pupil.candidateNumber, pupil.forename, pupil.surname, year, class, demerits, instanceID, instance.timestamp, demerit.name, demerit.description, merit.name, merit.description teacher.forename, teacher.surname, teacher.subject
+FROM pupil, instance, demerit, teacher
+WHEN instance.candidateNumber = pupil.candidateNumber AND instance.meritID = merit.meritID AND instance.demeritID = demerit.demeritID
