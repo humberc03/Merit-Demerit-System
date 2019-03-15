@@ -1,1 +1,1 @@
-# Merit-Demerti-System
+# Merit-Demerit-System
