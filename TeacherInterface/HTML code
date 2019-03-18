@@ -5,23 +5,20 @@
   <title>Merit/Demerit System</title>
 </head>
 <body>
-  <div class="topnav">
-  <nav>
-      <ul>
-        <li>
-          Class Search
-        </li>
-        <li>
-          Pupil Search
-        </li>
-      </ul>
-    </nav>
-  </div>
-  <div class="search-container">
-    <form action="action_page.php">
-      <optgroup label="Pupil">
-		  <option
-    </form>
+<div class="center">
+	<form>
+		<select>
+    		<optgroup label="Pupil">
+		  		<option value="name">Name</option>
+		  		<option value="SCN">SCN</option>
+    		</optgroup>
+			<optgroup label="Class">
+				<option value="practical">Practical</option>
+				<option value="psr">PSR</option>
+			</optgroup>
+		</select>
+		<
+	</form>
   </div>
 </body>
 </html>
