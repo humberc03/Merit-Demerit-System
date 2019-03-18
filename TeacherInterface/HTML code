@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+	<link href="home.css" rel="stylesheet">
+  <title>Merit/Demerit System</title>
+</head>
+<body>
+  <div class="topnav">
+  <nav>
+      <ul>
+        <li>
+          Class Search
+        </li>
+        <li>
+          Pupil Search
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="search-container">
+    <form action="action_page.php">
+      <optgroup label="Pupil">
+		  <option
+    </form>
+  </div>
+</body>
+</html>
