@@ -8,16 +8,37 @@
 <div class="center">
 	<form>
 		<select>
-    		<optgroup label="Pupil">
-		  		<option value="name">Name</option>
-		  		<option value="SCN">SCN</option>
-    		</optgroup>
-			<optgroup label="Class">
-				<option value="practical">Practical</option>
-				<option value="psr">PSR</option>
+    		<optgroup label="Search by...">
+		  		<option value="name" name="name">Name</option>
+		  		<option value="SCN" name="SCN">SCN</option>
+				<option value="class" name="class">Class</option>
 			</optgroup>
 		</select>
-		<
+		<br>
+		<input type="text" placeholder="Search..." name="search">
+		<br>
+		<select>
+			<optgroup label="Merit/Demerit">
+		  		<option value="merit" name="merit">Merits</option>
+		  		<option value="demerit" name="demerit">Demerit</option>
+    		</optgroup>
+		</select>
+		<p>Merits</p>
+		<input type="checkbox" value="merit-1" name="exellent-effort"> Exellent Effort <br>
+		<input type="checkbox" value="merit-2" name="perseverance"> Perseverance <br>
+		<input type="checkbox" value="merit-3" name="achievement"> Achievement <br>
+		<input type="checkbox" value="merit-4" name="leadership"> Leadership <br>
+		<input type="checkbox" value="merit-5" name="citizenship"> Citizenship <br>
+		<input type="checkbox" value="merit-6" name="improvement"> Improvement <br>
+		<p>Demerits</p>
+		<input type="checkbox" value="demerit-1" name="lack-of-effort"> Lack of Effort <br>
+		<input type="checkbox" value="demerit-2" name="removed-from-class"> Removed from Class <br>
+		<input type="checkbox" value="demerit-3" name="poor-cooperation"> Poor Cooperantion <br>
+		<input type="checkbox" value="demerit-4" name="no-equipment"> No Equipment <br>
+		<input type="checkbox" value="demerit-5" name="no-homework"> No Homework <br>
+		<input type="checkbox" value="demerit-6" name="not-in-class"> In School but not in Class <br> 
+		<input type="checkbox" value="demerit-5" name="incorret-uniform"> Incorret Uniform / No PE Kit <br>
+		<input type="checkbox" value="demerit-6" name="not-in-class"> Late to Class <br>
 	</form>
   </div>
 </body>
