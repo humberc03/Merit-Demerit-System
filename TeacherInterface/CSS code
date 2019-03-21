@@ -1,0 +1,29 @@
+ul{
+  list-style-type: none;
+  margin: 0;
+  padding-top: 20px;
+  padding-left: 0px; 
+  padding-right: 0px; 
+  padding-bottom: 0px;
+  background-color: blue;
+  height: 40px;
+  width: 400px;
+}
+li{
+  display: inline;
+  float: left;
+}
+li a{
+  padding: 14px;
+  text-decoration: none;
+  color: lightgray;
+}
+li a:hover{
+  background-color: purple;
+}
+button{
+	height: 20px;
+}
+.search-container{
+	height: 20px;
+}

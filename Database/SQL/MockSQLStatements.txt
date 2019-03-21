@@ -1,0 +1,34 @@
+SEARCH FOR MERIT INSTANCE
+SELECT pupil.candidateNumber, pupil.forename, pupil.surname, year, PSRclass, award.name, award.description, timestamp, teacher.surname, teacher.forename
+FROM pupil, instance, award, teacher
+WHEN instance.candidateNumber = pupil.candidateNumber LIKE ‘%’ + ‘M’ + ‘%’
+
+SEARCH FOR DEMERIT INSTANCE
+SELECT pupil.candidateNumber, pupil.forename, pupil.surname, year, PSRclass, award.name, award.description, timestamp, teacher.surname, teacher.forename
+FROM pupil, instance, award, teacher
+WHEN instance.candidateNumber = pupil.candidateNumber AND instanceID LIKE ‘%’ + ‘D’ + ‘%’
+
+SEARCH FOR LIST OF A PUPIL’S MERITS
+SELECT pupil.candidateNumber, pupil.forename, pupil.surname, year, PSRclass, totalMerits, instanceID, instance.timestamp, award.name, award.description, teacher.forename, teacher.surname, teacher.subject
+FROM pupil, instance, award, teacher
+WHEN instance.candidateNumber = pupil.candidateNumber AND instance.awardID = pupil.awardID
+
+SEARCH FOR LIST OF A PUPIL’S DEMERITS
+SELECT pupil.candidateNumber, pupil.forename, pupil.surname, year, PSRclass, totalDemerits, instanceID, instance.timestamp, award.name, award.description, teacher.forename, teacher.surname, teacher.subject
+FROM pupil, instance, award, teacher
+WHEN instance.candidateNumber = pupil.candidateNumber AND instance.awardID = pupil.awardID
+
+SEARCH FOR LIST OF A PUPIL’S INSTANCES
+SELECT pupil.candidateNumber, pupil.forename, pupil.surname, year, PSRclass, totalMerits, totalDemerits, instanceID, instance.timestamp, award.name, award.description teacher.forename, teacher.surname, teacher.subject
+FROM pupil, instance, demerit, teacher
+WHEN instance.candidateNumber = pupil.candidateNumber AND instance.awardID = award.awardID
+
+CALCULATE TOTAL MERIT
+UPDATE pupil, instance
+SET totalMerits = (SELECT COUNT(instanceID) FROM pupil, instance, award WHERE instance.candidateNumber = pupil.candidateNumber AND instance.awardID LIKE ‘%’ + ‘M’ + ‘%’) AS SUBQUERY
+WHERE pupil.candidateNumber = instance.candidateNumber
+
+CALCULATE TOTAL DEMERIT
+UPDATE pupil, instance
+SET totalMerits = (SELECT COUNT(instanceID) FROM pupil, instance, award WHERE instance.candidateNumber = pupil.candidateNumber AND instance.awardID LIKE ‘%’ + ‘D’ + ‘%’) AS SUBQUERY
+WHERE pupil.candidateNumber = instance.candidateNumber
