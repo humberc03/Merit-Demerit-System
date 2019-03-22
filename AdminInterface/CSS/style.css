@@ -1,1 +1,38 @@
+body {
+	font-family: ABeeZee;
+	background-color: #d4e7ed;
+}
+select {
+	width: 29%;
+	height: 31px;
+	border-color: blue;
+	border-top-color: blue;
+	border-left-color: blue;
+	border-width: 1.5px;
+	float: left;
+	font-family: ABeeZee;
+}
 
+.searchBar {
+	height: 26px;
+	width: 60%;
+	border-color: blue;
+	border-width: 1.5px;
+	border-left-width: 0px;
+	border-right-width: 0px;
+	float: left;
+	font-family: ABeeZee;
+}
+
+form {
+	align-content: center;
+}
+
+.submit {
+	background-color: blue;
+	border: none;
+	color: white;
+	height: 31px;
+	width: 31px;
+	float: left;
+}
