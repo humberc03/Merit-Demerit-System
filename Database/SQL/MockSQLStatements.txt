@@ -1,54 +1,79 @@
 SEARCH FOR ALL MERITS
-SELECT pupil.candidateNumber, pupil.forename, pupil.surname, year, PSRclass, award.name, award.description, timestamp, teacher.surname, teacher.forename
+SELECT pupil.candidateNumber, pupil.forename, pupil.surname, year, PSRclass, award.awardName, award.description, timestamp, teacher.surname, teacher.forename
 FROM pupil, instance, award, teacher
-WHEN instance.candidateNumber = pupil.candidateNumber AND meritOrDemerit = “merit”
+WHERE instance.candidateNumber = pupil.candidateNumber AND meritOrDemerit = ‘merit’;
 
 SEARCH FOR ALL DEMERITS
-SELECT pupil.candidateNumber, pupil.forename, pupil.surname, year, PSRclass, award.name, award.description, timestamp, teacher.surname, teacher.forename
+SELECT pupil.candidateNumber, pupil.forename, pupil.surname, year, PSRclass, award.awardName, award.description, timestamp, teacher.surname, teacher.forename
 FROM pupil, instance, award, teacher
-WHEN instance.candidateNumber = pupil.candidateNumber AND meritOrDemerit = “demerit”
+WHERE instance.candidateNumber = pupil.candidateNumber AND meritOrDemerit = ‘demerit’;
 
 SEARCH FOR SPECIFIC INSTANCE
-SELECT pupil.candidateNumber, pupil.forename, pupil.surname, year, PSRclass, instance.meritOrDemerit award.name, award.description, timestamp, teacher.surname, teacher.forename
+SELECT pupil.candidateNumber, pupil.forename, pupil.surname, year, PSRclass, instance.meritOrDemerit award.awardName, award.description, timestamp, teacher.surname, teacher.forename
 FROM pupil, instance, award, teacher
-WHEN instance.candidateNumber = pupil.candidateNumber AND instance.instanceID = searchTerm
+WHERE instance.candidateNumber = pupil.candidateNumber AND instance.instanceID = searchTerm;
 
 SEARCH FOR LIST OF A PUPIL’S MERITS (by SCN)
-SELECT pupil.candidateNumber, pupil.forename, pupil.surname, year, PSRclass, totalMerits, instanceID, instance.timestamp, award.name, award.description, teacher.forename, teacher.surname, teacher.subject
+SELECT pupil.candidateNumber, pupil.forename, pupil.surname, year, PSRclass, totalMerits, instanceID, instance.timestamp, award.awardName, award.description, teacher.forename, teacher.surname, teacher.subject
 FROM pupil, instance, award, teacher
-WHEN instance.candidateNumber = pupil.candidateNumber AND instance.awardID = pupil.awardID
+WHERE instance.candidateNumber = pupil.candidateNumber AND instance.awardID = pupil.awardID;
 
 SEARCH FOR LIST OF A PUPIL’S DEMERITS (by SCN)
-SELECT pupil.candidateNumber, pupil.forename, pupil.surname, year, PSRclass, totalDemerits, instanceID, instance.timestamp, award.name, award.description, teacher.forename, teacher.surname, teacher.subject
+SELECT pupil.candidateNumber, pupil.forename, pupil.surname, year, PSRclass, totalDemerits, instanceID, instance.timestamp, award.awardName, award.description, teacher.forename, teacher.surname, teacher.subject
 FROM pupil, instance, award, teacher
-WHEN instance.candidateNumber = pupil.candidateNumber AND instance.awardID = pupil.awardID
+WHERE instance.candidateNumber = pupil.candidateNumber AND instance.awardID = pupil.awardID;
 
 SEARCH FOR LIST OF A PUPIL’S MERITS (by SCN)
-SELECT pupil.candidateNumber, pupil.forename, pupil.surname, year, PSRclass, totalMerits, instanceID, instance.timestamp, award.name, award.description, teacher.forename, teacher.surname, teacher.subject
+SELECT pupil.candidateNumber, pupil.forename, pupil.surname, year, PSRclass, totalMerits, instanceID, instance.timestamp, award.awardName, award.description, teacher.forename, teacher.surname, teacher.subject
 FROM pupil, instance, award, teacher
-WHEN instance.forename = pupil.forename AND instance.surname = pupil.surname AND instance.awardID = pupil.awardID AND meritOrDemerit = “merit”
+WHERE instance.forename = pupil.forename AND instance.surname = pupil.surname AND instance.awardID = pupil.awardID AND meritOrDemerit = ‘merit’;
 
 SEARCH FOR LIST OF A PUPIL’S DEMERITS (by SCN)
-SELECT pupil.candidateNumber, pupil.forename, pupil.surname, year, PSRclass, totalDemerits, instanceID, instance.timestamp, award.name, award.description, teacher.forename, teacher.surname, teacher.subject
+SELECT pupil.candidateNumber, pupil.forename, pupil.surname, year, PSRclass, totalDemerits, instanceID, instance.timestamp, award.awardName, award.description, teacher.forename, teacher.surname, teacher.subject
 FROM pupil, instance, award, teacher
-WHEN instance.forename = pupil.forename AND instance.surname = pupil.surname AND instance.awardID = pupil.awardID AND meritOrDemerit = “demerit”
+WHERE instance.forename = pupil.forename AND instance.surname = pupil.surname AND instance.awardID = pupil.awardID AND meritOrDemerit = ‘demerit’;
 
 SEARCH FOR LIST OF A PUPIL’S INSTANCES (by SCN)
-SELECT pupil.candidateNumber, pupil.forename, pupil.surname, year, PSRclass, totalMerits, totalDemerits, instanceID, instance.timestamp, instance.meritOrDemerit award.name, award.description teacher.forename, teacher.surname, teacher.subject
-FROM pupil, instance, demerit, teacher
-WHEN instance.candidateNumber = pupil.candidateNumber AND instance.awardID = award.awardID
+SELECT pupil.candidateNumber, pupil.forename, pupil.surname, year, PSRclass, totalMerits, totalDemerits, instanceID, instance.timestamp, instance.meritOrDemerit award.awardName, award.description teacher.forename, teacher.surname, teacher.subject
+FROM pupil, instance, award, teacher
+WHERE instance.candidateNumber = pupil.candidateNumber AND instance.awardID = award.awardID;
 
 SEARCH FOR LIST OF A PUPIL’S INSTANCES (by Name)
-SELECT pupil.candidateNumber, pupil.forename, pupil.surname, year, PSRclass, totalMerits, instanceID, instance.timestamp, instance.meritOrDemerit award.name, award.description, teacher.forename, teacher.surname, teacher.subject
+SELECT pupil.candidateNumber, pupil.forename, pupil.surname, year, PSRclass, totalMerits, instanceID, instance.timestamp, instance.meritOrDemerit award.awardName, award.description, teacher.forename, teacher.surname, teacher.subject
 FROM pupil, instance, award, teacher
-WHEN instance.forename = pupil.forename AND instance.surname = pupil.surname AND instance.awardID = pupil.awardID
+WHERE instance.forename = pupil.forename AND instance.surname = pupil.surname AND instance.awardID = pupil.awardID;
 
-CALCULATE TOTAL MERIT
+UPDATE TOTAL MERIT FIELD
 UPDATE pupil, instance
-SET totalMerits = (SELECT COUNT(instanceID) FROM pupil, instance, award WHERE instance.candidateNumber = pupil.candidateNumber AND meritOrDemerit = “merit”) AS SUBQUERY
-WHERE pupil.candidateNumber = instance.candidateNumber
+SET totalMerits = (SELECT COUNT(instanceID) FROM pupil, instance, award WHERE instance.candidateNumber = pupil.candidateNumber AND meritOrDemerit = ‘merit’) AS SUBQUERY
+WHERE pupil.candidateNumber = instance.candidateNumber;
 
-CALCULATE TOTAL DEMERIT
+UPDATE TOTAL DEMERIT FIELD
 UPDATE pupil, instance
-SET totalMerits = (SELECT COUNT(instanceID) FROM pupil, instance, award WHERE instance.candidateNumber = pupil.candidateNumber AND meritOrDemerit = “demerit”) AS SUBQUERY
-WHERE pupil.candidateNumber = instance.candidateNumber
+SET totalMerits = (SELECT COUNT(instanceID) FROM pupil, instance, award WHERE instance.candidateNumber = pupil.candidateNumber AND meritOrDemerit = ‘demerit’) AS SUBQUERY
+WHERE pupil.candidateNumber = instance.candidateNumber;
+
+CALCULATE TOTAL MERITS FOR EACH YEAR GROUP
+SELECT year, COUNT(instance.instanceID)
+FROM pupil, instance
+WHERE pupil.candidateNumber = instance.candidateNumber AND meritOrDemerit = ‘merit’ AND year = searchTerm;
+
+CALCULATE TOTAL DEMERITS FOR EACH YEAR GROUP
+SELECT year, COUNT(instance.instanceID)
+FROM pupil, instance
+WHERE pupil.candidateNumber = instance.candidateNumber AND meritOrDemerit = ‘demerit’ AND year = searchTerm;
+
+CALCULATE TOTAL MERITS FOR EACH CLASS
+SELECT instance.classID, COUNT(instance.instanceID)
+FROM pupil, instance, class
+WHERE pupil.candidateNumber = instance.candidateNumber AND meritOrDemerit = ‘merit’ AND instance.classID = class.classID AND class.classID = searchTerm;
+
+CALCULATE TOTAL DEMERITS FOR EACH CLASS
+SELECT instance.classID, COUNT(instance.instanceID)
+FROM pupil, instance, class
+WHERE pupil.candidateNumber = instance.candidateNumber AND meritOrDemerit = ‘demerit’ AND instance.classID = class.classID AND class.classID = searchTerm;
+
+CALCULATE TOTAL MERITS FOR EACH YEAR GROUP
+SELECT year, COUNT(instance.instanceID)
+FROM pupil, instance
+WHERE pupil.candidateNumber = instance.candidateNumber AND meritOrDemerit = ‘merit’ AND year = searchTerm;
