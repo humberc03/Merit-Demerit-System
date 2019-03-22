@@ -73,7 +73,22 @@ SELECT instance.classID, COUNT(instance.instanceID)
 FROM pupil, instance, class
 WHERE pupil.candidateNumber = instance.candidateNumber AND meritOrDemerit = ‘demerit’ AND instance.classID = class.classID AND class.classID = searchTerm;
 
-CALCULATE TOTAL MERITS FOR EACH YEAR GROUP
-SELECT year, COUNT(instance.instanceID)
+CALCULATE WHICH PUPILS HAVE MERITS IN SPECIFIC YEAR GROUP
+SELECT pupil.candidateNumber, pupil.forename, pupil.surname, year, totalMerits
 FROM pupil, instance
 WHERE pupil.candidateNumber = instance.candidateNumber AND meritOrDemerit = ‘merit’ AND year = searchTerm;
+
+CALCULATE WHICH PUPILS HAVE DEMERITS IN SPECIFIC YEAR GROUP
+SELECT pupil.candidateNumber, pupil.forename, pupil.surname, year, totalDemerits
+FROM pupil, instance
+WHERE pupil.candidateNumber = instance.candidateNumber AND meritOrDemerit = ‘demerit’ AND year = searchTerm;
+
+CALCULATE WHICH PUPILS HAVE MERITS IN SPECIFIC CLASS
+SELECT pupil.candidateNumber, pupil.forename, pupil.surname, instance.classID, totalMerits
+FROM pupil, instance, class
+WHERE pupil.candidateNumber = instance.candidateNumber AND meritOrDemerit = ‘merit’ AND instance.classID = class.classID AND class.classID = searchTerm;
+
+CALCULATE WHICH PUPILS HAVE DEMERITS IN SPECIFIC CLASS
+SELECT pupil.candidateNumber, pupil.forename, pupil.surname, instance.classID, totalDemerits
+FROM pupil, instance, class
+WHERE pupil.candidateNumber = instance.candidateNumber AND meritOrDemerit = ‘demerit’ AND instance.classID = class.classID AND class.classID = searchTerm;
