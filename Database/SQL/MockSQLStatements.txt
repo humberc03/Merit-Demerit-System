@@ -102,3 +102,13 @@ LIST ALL PUPILS IN A SPECIFIC CLASS AND THEIR AWARDS
 SELECT pupil.candidateNumber, pupil.forename, pupil.surname, pupil.year, pupil.PSRclass, instance.meritOrDemerit, award.awardName, award.description
 FROM pupil, instance, award
 WHERE instance.awardID = award.awardID AND PSRclass = searchTerm;
+
+CALCULATE HOW MANY OF A SPECIFIC MERIT HAS BEEN ASSIGNED
+SELECT COUNT(instance.instanceID), instance.meritOrDemerit, award.awardID, award.awardName, award.description
+FROM instance, award
+WHERE instance.awardID = award.awardID AND instance.meritOrDemerit = ‘merit’ AND award.awardID = searchTerm;
+
+CALCULATE HOW MANY OF A SPECIFIC DEMERIT HAS BEEN ASSIGNED
+SELECT COUNT(instance.instanceID), instance.meritOrDemerit, award.awardID, award.awardName, award.description
+FROM instance, award
+WHERE instance.awardID = award.awardID AND instance.meritOrDemerit = ‘demerit’ AND award.awardID = searchTerm;
