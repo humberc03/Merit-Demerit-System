@@ -92,3 +92,13 @@ CALCULATE WHICH PUPILS HAVE DEMERITS IN SPECIFIC CLASS
 SELECT pupil.candidateNumber, pupil.forename, pupil.surname, instance.classID, totalDemerits
 FROM pupil, instance, class
 WHERE pupil.candidateNumber = instance.candidateNumber AND meritOrDemerit = ‘demerit’ AND instance.classID = class.classID AND class.classID = searchTerm;
+
+HOW MANY PEOPLE HAVE A SPECIFIC AWARD TYPE
+SELECT COUNT(pupil.candidateNumber), pupil.forename, pupil.surname, instance.awardID, award.awardName
+FROM pupil, instance, award
+WHERE instance.awardID = award.awardID AND award.awardName = searchTerm;
+
+LIST ALL PUPILS IN A SPECIFIC CLASS AND THEIR AWARDS
+SELECT pupil.candidateNumber, pupil.forename, pupil.surname, pupil.year, pupil.PSRclass, award.awardName, award.description
+FROM pupil, instance, award
+WHERE instance.awardID = award.awardID AND PSRclass = searchTerm;
