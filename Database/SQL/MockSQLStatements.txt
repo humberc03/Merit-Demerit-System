@@ -99,6 +99,6 @@ FROM pupil, instance, award
 WHERE instance.awardID = award.awardID AND award.awardName = searchTerm;
 
 LIST ALL PUPILS IN A SPECIFIC CLASS AND THEIR AWARDS
-SELECT pupil.candidateNumber, pupil.forename, pupil.surname, pupil.year, pupil.PSRclass, award.awardName, award.description
+SELECT pupil.candidateNumber, pupil.forename, pupil.surname, pupil.year, pupil.PSRclass, instance.meritOrDemerit, award.awardName, award.description
 FROM pupil, instance, award
 WHERE instance.awardID = award.awardID AND PSRclass = searchTerm;
