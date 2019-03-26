@@ -1,8 +1,6 @@
 body {
 	font-family: ABeeZee;
 	background-color: #d4e7ed;
-	align-content: center;
-	align-items: center;
 	margin: 2%;
 }
 select {
@@ -26,7 +24,6 @@ select {
 	float: left;
 	font-family: ABeeZee;
 }
-
 
 .submit {
 	background-color: blue;
