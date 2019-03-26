@@ -1,45 +1,63 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
+
+
+	<link href="https://fonts.googleapis.com/css?family=ABeeZee" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
 	<link href="home.css" rel="stylesheet">
   <title>Merit/Demerit System</title>
 </head>
 <body>
 <div class="center">
 	<form>
-		<select>
-    		<optgroup label="Search by...">
-		  		<option value="name" name="name">Name</option>
-		  		<option value="SCN" name="SCN">SCN</option>
-				<option value="class" name="class">Class</option>
-			</optgroup>
-		</select>
 		<br>
-		<input type="text" placeholder="Search..." name="search">
+		<input class="searchbar" type="text" placeholder="Search by SCN Number..." name="search">
 		<br>
-		<select>
-			<optgroup label="Merit/Demerit">
-		  		<option value="merit" name="merit">Merits</option>
-		  		<option value="demerit" name="demerit">Demerit</option>
-    		</optgroup>
-		</select>
-		<p>Merits</p>
-		<input type="checkbox" value="merit-1" name="exellent-effort"> Exellent Effort <br>
-		<input type="checkbox" value="merit-2" name="perseverance"> Perseverance <br>
-		<input type="checkbox" value="merit-3" name="achievement"> Achievement <br>
-		<input type="checkbox" value="merit-4" name="leadership"> Leadership <br>
-		<input type="checkbox" value="merit-5" name="citizenship"> Citizenship <br>
-		<input type="checkbox" value="merit-6" name="improvement"> Improvement <br>
-		<p>Demerits</p>
-		<input type="checkbox" value="demerit-1" name="lack-of-effort"> Lack of Effort <br>
-		<input type="checkbox" value="demerit-2" name="removed-from-class"> Removed from Class <br>
-		<input type="checkbox" value="demerit-3" name="poor-cooperation"> Poor Cooperantion <br>
-		<input type="checkbox" value="demerit-4" name="no-equipment"> No Equipment <br>
-		<input type="checkbox" value="demerit-5" name="no-homework"> No Homework <br>
-		<input type="checkbox" value="demerit-6" name="not-in-class"> In School but not in Class <br> 
-		<input type="checkbox" value="demerit-5" name="incorret-uniform"> Incorret Uniform / No PE Kit <br>
-		<input type="checkbox" value="demerit-6" name="not-in-class"> Late to Class <br>
+		<button type="button" class="btn btn-outline-primary" onclick="display2()">Merit</button>
+  		<button type="button" class="btn btn-outline-primary" onclick="display1()">Demerit</button>
+		<div class="merit" id="merit">
+		<p><b>Merits</b></p> <br>
+		<input type="checkbox" value="exellent-effort" name="award" > <p>Exellent Effort</p> <br>
+		<input type="checkbox" value="perseverance" name="award" > <p>Perseverance</p> <br>
+		<input type="checkbox" value="achievement" name="award" > <p>Achievement</p> <br>
+		<input type="checkbox" value="leadership" name="award" > <p>Leadership</p> <br>
+		<input type="checkbox" value="citizenship" name="award" > <p>Citizenship</p> <br>
+		<input type="checkbox" value="improvement" name="award" > <p>Improvement</p> <br>
+		</div>
+		<div class="demerit" id="demerit">
+		<p><b>Demerits</b></p> <br>
+		<input type="checkbox" value="lack-of-effort" name="award" > <p>Lack of Effort</p> <br>
+		<input type="checkbox" value="removed-from-class" name="award" > <p>Removed from Class</p> <br>
+		<input type="checkbox" value="poor-cooperation" name="award" > <p>Poor Cooperantion</p> <br>
+		<input type="checkbox" value="no-equipment" name="award" > <p>No Equipment</p> <br>
+		<input type="checkbox" value="no-homework" name="award" > <p>No Homework</p> <br>
+		<input type="checkbox" value="Late" name="award" > <p>Late To Class</p> <br> 
+		<input type="checkbox" value="incorret-uniform" name="award" > <p>Incorret Uniform / No PE Kit</p> <br>
+		<input type="checkbox" value="not-in-class" name="award" > <p>Not in Class</p> <br>
+		</div>
+		<textarea class="form-control" placeholder="Add a comment..." rows="5" id="comment"></textarea>
+		<button type="button" class="btn btn-outline-primary" id="Submit">Submit</button>
 	</form>
   </div>
 </body>
+
+<script>
+
+function display1() {
+  document.getElementById('merit').style.display = 'none';
+  document.getElementById('demerit').style.display = 'block';
+}
+function display2() {
+  document.getElementById('demerit').style.display = 'none';
+  document.getElementById('merit').style.display = 'block';
+}
+
+</script>
+
+
+
 </html>
+
