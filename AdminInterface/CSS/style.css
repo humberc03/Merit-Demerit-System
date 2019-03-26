@@ -1,9 +1,12 @@
 body {
 	font-family: ABeeZee;
 	background-color: #d4e7ed;
+	align-content: center;
+	align-items: center;
+	margin: 2%;
 }
 select {
-	width: 29%;
+	width: 31%;
 	height: 31px;
 	border-color: blue;
 	border-top-color: blue;
@@ -15,7 +18,7 @@ select {
 
 .searchBar {
 	height: 26px;
-	width: 60%;
+	width: 61%;
 	border-color: blue;
 	border-width: 1.5px;
 	border-left-width: 0px;
@@ -24,15 +27,12 @@ select {
 	font-family: ABeeZee;
 }
 
-form {
-	align-content: center;
-}
 
 .submit {
 	background-color: blue;
 	border: none;
 	color: white;
 	height: 31px;
-	width: 31px;
+	width: 8%;
 	float: left;
 }
