@@ -11,14 +11,26 @@
   <title>Merit/Demerit System</title>
 </head>
 <body>
-<div class="center">
+<div class="container">
 	<form>
 		<br>
-		<input class="searchbar" type="text" placeholder="Search by SCN Number..." name="search">
+		<div class="row">
+			<div class="clo-12" id="search">
+				<input class="searchbar" type="text" placeholder="Search by SCN Number..." name="search">
+			</div>
+		</div>
 		<br>
-		<button type="button" class="btn btn-outline-primary" onclick="display2()">Merit</button>
-  		<button type="button" class="btn btn-outline-primary" onclick="display1()">Demerit</button>
-		<div class="merit" id="merit">
+		<div class="row">
+			<div class="clo-2" id="meritBtn">
+				<button type="button" class="btn btn-outline-primary" onclick="display2()">Merit</button>
+			</div>
+			<div class="clo-10" id="demeritBtn">
+  				<button type="button" class="btn btn-outline-primary" onclick="display1()">Demerit</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="clo-12" id="meritSelect">
+				<div class="merit" id="merit">
 		<p><b>Merits</b></p> <br>
 		<input type="checkbox" value="exellent-effort" name="award" > <p>Exellent Effort</p> <br>
 		<input type="checkbox" value="perseverance" name="award" > <p>Perseverance</p> <br>
@@ -26,8 +38,12 @@
 		<input type="checkbox" value="leadership" name="award" > <p>Leadership</p> <br>
 		<input type="checkbox" value="citizenship" name="award" > <p>Citizenship</p> <br>
 		<input type="checkbox" value="improvement" name="award" > <p>Improvement</p> <br>
+				</div>
+			</div>
 		</div>
-		<div class="demerit" id="demerit">
+		<div class="row">
+			<div class="clo-12" id="demeritSelect">
+				<div class="demerit" id="demerit">
 		<p><b>Demerits</b></p> <br>
 		<input type="checkbox" value="lack-of-effort" name="award" > <p>Lack of Effort</p> <br>
 		<input type="checkbox" value="removed-from-class" name="award" > <p>Removed from Class</p> <br>
@@ -37,9 +53,27 @@
 		<input type="checkbox" value="Late" name="award" > <p>Late To Class</p> <br> 
 		<input type="checkbox" value="incorret-uniform" name="award" > <p>Incorret Uniform / No PE Kit</p> <br>
 		<input type="checkbox" value="not-in-class" name="award" > <p>Not in Class</p> <br>
+				</div>
+			</div>
 		</div>
+		<div class="row">
+			<div class="clo-12" id="comment">
 		<textarea class="form-control" placeholder="Add a comment..." rows="5" id="comment"></textarea>
+			</div>
+		</div>
+		<div class="row">
+			<div class="clo-12" id="email">
+				<p>Select to e-mail</p><br>
+				<input type="checkbox" value="head-of-year" name="award" > <p>Head of Year</p> <br>
+				<input type="checkbox" value="pupil-support" name="award" > <p>Pupil Support</p> <br>
+				<input type="checkbox" value="senior-management" name="award" > <p>Senior Management</p> <br>
+			</div>
+		</div>
+		<div class="row">
+			<div class="clo-12" id="submit">
 		<button type="button" class="btn btn-outline-primary" id="Submit">Submit</button>
+			</div>
+		</div>
 	</form>
   </div>
 </body>
@@ -60,4 +94,3 @@ function display2() {
 
 
 </html>
-
