@@ -1,29 +1,38 @@
-ul{
-  list-style-type: none;
-  margin: 0;
-  padding-top: 20px;
-  padding-left: 0px; 
-  padding-right: 0px; 
-  padding-bottom: 0px;
-  background-color: blue;
-  height: 40px;
-  width: 400px;
-}
-li{
-  display: inline;
-  float: left;
-}
-li a{
-  padding: 14px;
-  text-decoration: none;
-  color: lightgray;
-}
-li a:hover{
-  background-color: purple;
-}
+//Main\\
 button{
-	height: 20px;
+	height: 40px;
 }
-.search-container{
-	height: 20px;
+p{
+	color: #20688e;
+	display: inline;
+	font-family: abeezee;
 }
+select{
+	color: #20688e;
+}
+::placeholder{
+	color: #20688e;
+}
+body{
+	background-color: #d4e7ed;
+}
+
+//Classes\\
+.searchbar{
+	height: 20px;
+	width: 400px;
+	padding: 10px;
+}
+
+//ID's\\
+#merit{
+	display: none;
+}
+#demerit{
+	display: none;
+}
+#comment{
+	width: 400px;
+}
+
+
