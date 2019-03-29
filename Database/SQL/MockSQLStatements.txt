@@ -1,12 +1,12 @@
 SEARCH FOR ALL MERITS
 SELECT pupil.candidateNumber, pupil.forename, pupil.surname, year, PSRclass, award.awardName, award.description, timestamp, teacher.surname, teacher.forename
 FROM pupil, instance, award, teacher
-WHERE instance.candidateNumber = pupil.candidateNumber AND meritOrDemerit = ‘merit’;
+WHERE instance.candidateNumber = pupil.candidateNumber AND instance.awardID = award.awardID AND instance.teacherID = teacher.teacherID AND meritOrDemerit = "merit";
 
 SEARCH FOR ALL DEMERITS
 SELECT pupil.candidateNumber, pupil.forename, pupil.surname, year, PSRclass, award.awardName, award.description, timestamp, teacher.surname, teacher.forename
 FROM pupil, instance, award, teacher
-WHERE instance.candidateNumber = pupil.candidateNumber AND meritOrDemerit = ‘demerit’;
+WHERE instance.candidateNumber = pupil.candidateNumber AND instance.awardID = award.awardID AND instance.teacherID = teacher.teacherID AND meritOrDemerit = "demerit";
 
 SEARCH FOR SPECIFIC INSTANCE
 SELECT pupil.candidateNumber, pupil.forename, pupil.surname, year, PSRclass, instance.meritOrDemerit award.awardName, award.description, timestamp, teacher.surname, teacher.forename
